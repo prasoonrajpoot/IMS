@@ -40,6 +40,13 @@ function AddEmp() {
 
       var res = await axios.post("/addUser", data);
 
+      if(res.data == "succesful"){
+        alert("user added succesfully");
+      }
+      if(res.data == "error"){
+        alert("some error while trying to save user");
+      }
+
     };
 
 

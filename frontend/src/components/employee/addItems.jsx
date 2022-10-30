@@ -28,16 +28,20 @@ function AddItems() {
       const addButton = async (e) => {
         e.preventDefault();
         var data = {
-          fname: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          pass: document.getElementById("pass").value,
-          addr: document.getElementById("addr").value,
-          isAdmin: document.getElementById("admin-done").checked,
+            detail : document.getElementById("detail").value,
+            safeAmount : document.getElementById("safeAmount").value,
+            qty : document.getElementById("qty").value,
+            price : document.getElementById("price").value
         };
 
         console.log(data);
 
         var res = await axios.post("/addItems", data);
+        if(res.data == "succesfull"){
+          alert("item added succesfully");
+        }
+        if(res.data == "err")
+          alert(" some error ");
       };
 
   return (
@@ -54,24 +58,26 @@ function AddItems() {
       >
         <Box sx={style}>
           <form action="">
-            <input id="name" type="text" placeholder="Enter Name of Employee" />
+            <input id="detail" 
+            type="text" 
+            placeholder="Enter Detail of Item" />
             <br />
             <input
-              id="email"
-              type="text"
-              placeholder="Enter Email for Employee"
+              id="safeAmount"
+              type="number"
+              placeholder="Enter safe amount for item"
             />
             <br />
             <input
-              id="pass"
-              type="text"
-              placeholder="Enter password for Employee"
+              id="qty"
+              type="number"
+              placeholder="Enter qty for Item"
             />
             <br />
             <input
-              id="addr"
-              type="text"
-              placeholder="Enter address of Employee"
+              id="price"
+              type="number"
+              placeholder="Enter price of Item"
             />
             <br />
             <br />
