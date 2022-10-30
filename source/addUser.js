@@ -12,18 +12,33 @@ app.use(bodyParser.json());
 
 app.post("/", async (req, res) => {
   try {
-    var { fname, email, contact, pass } = req.body;
-    console.log(fname + "  " + email + "  " + contact);
+    var { fname, email, pass, addr, isAdmin } = req.body;
+    // console.log(fname + "  " + email + "  " + contact);
     console.log("we here ");
     const newUser = await pool.query(
-      "INSERT INTO users(fname, email, contact, pass) VALUES($1, $2, $3, $4) returning *",
-      [fname, email, contact, pass]
+      "INSERT INTO employee(fname, email, pass, addr) VALUES($1, $2, $3, $4) returning *",
+      [fname, email,pass , addr]
     );
-    res.json(newUser);
-    console.log(newUser);
+      // console.log(newUser);
+    if(isAdmin == true){
+      // console.log(" we here in sided ")
+      const newAdmin = await pool.query(
+        "Insert into admins(admin_ssn) values ($1)", 
+        [newUser.rows[0].eid]
+      )
+
+      console.log(newAdmin)
+    }
+
+
+    res.send("succesful")
+    // console.log(newUser);
   } catch (err) {
     console.log(err);
+    res.send("error");
   }
+
+
 });
 
 module.exports = app;

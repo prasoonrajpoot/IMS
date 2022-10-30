@@ -1,6 +1,6 @@
 
 create Table Employee (
-    EId Integer Primary key,
+    EId Serial Primary key,
     FName varchar(20),
     email varchar(20),
     pass varchar(20),
@@ -9,13 +9,14 @@ create Table Employee (
 
 
 create Table Admins(
-    admin_ID Integer,
-    admin_SSN Integer Primary Key;
+        -- forieng key to Employee
+    admin_ID Serial,
+    admin_SSN Integer Primary Key
 );
 
 
 create Table Storage(
-    storage_Number Integer Primary Key,
+    storage_Number Serial Primary Key,
     storage_Location varchar(20)
 );
 
@@ -29,16 +30,17 @@ create Table Inventory(
 );
 
 
-create Table Orders(
-    order_ID Integer,
-    admin_ID Integer,
-    order_Date date,
-    total_price Integer
-);
+-- create Table Orders(
+--     order_ID Serial,
+--     admin_ID Integer,
+--     order_Date date,
+--     total_price Integer
+-- );
 
 create Table Items(
-    ItemId Integer,
-    order_Id Integer,
+    ItemId Serial,
+    detail varchar(50),
+    safeAmount Integer,
     qty Integer,
     price Integer
 );

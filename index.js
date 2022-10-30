@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 
 
-// app.use("/fake", fakeFile);
+app.use("/fake", fakeFile);
 app.use("/addadmin", addAdminFile);
 app.use("/addUser", addUserFile);
 app.use("/login", loginFile);

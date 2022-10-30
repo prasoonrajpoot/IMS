@@ -12,6 +12,7 @@ var app = express();
 
 app.get("/", async (req, res) => {
   try {
+    console.log("we here ");
    var fname = "admin";
    var email =  "admin@gmail.com";
    var EId = 344;
@@ -21,8 +22,8 @@ app.get("/", async (req, res) => {
 
     console.log("we here ");
     const newAdmin = await pool.query(
-      "INSERT INTO Employee(EId, fname, email, pass, addr) VALUES($1, $2, $3, $4, $5) returning *",
-      [EId, fname, email, pass, addr]
+      "INSERT INTO Employee( fname, email, pass, addr) VALUES($1, $2, $3, $4) returning *",
+      [fname, email, pass, addr]
     );
     res.json(newAdmin);
     console.log(newAdmin);
