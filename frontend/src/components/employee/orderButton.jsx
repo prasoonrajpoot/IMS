@@ -54,11 +54,15 @@ function OrderButton() {
 
      console.log(data);
 
-     var res = await axios.post("/placeOrder", data);
+     var res = await axios.post("/doOrder", data);
+     console.log(res.data);
      if (res.data == "succesfull") {
-       alert("order added succesfully");
+       alert("order executed  succesfully");
      }
      if (res.data == "err") alert(" some error ");
+     if(res.data == "aukat se jayda"){
+      alert("not enough available in inventory");
+     }
    };
 
   return (
