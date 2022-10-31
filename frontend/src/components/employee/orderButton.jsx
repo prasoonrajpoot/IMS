@@ -17,7 +17,7 @@ const style = {
   p: 4,
 };
 
-function OrderButton() {
+function OrderButton(props) {
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -57,7 +57,9 @@ function OrderButton() {
      var res = await axios.post("/doOrder", data);
      console.log(res.data);
      if (res.data == "succesfull") {
+
        alert("order executed  succesfully");
+       props.setRefresh(!props.refreshData);
      }
      if (res.data == "err") alert(" some error ");
      if(res.data == "aukat se jayda"){

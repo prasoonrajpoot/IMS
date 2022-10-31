@@ -3,7 +3,8 @@ import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 
 import axios from 'axios'
 
-function AllItems() {
+function AllItems(props) {
+
     var [allData, setAllData] = React.useState([]);
     const getData = async () => {
         var res = await axios.get("/getItems");
@@ -17,7 +18,7 @@ function AllItems() {
 
     React.useEffect(() => {
         getData();
-    }, []);
+    }, [props.refreshData]);
 
 
     const columns = [

@@ -34,7 +34,7 @@ app.post("/", async (req,res)=> {
             [newQty, ItemId]
             );
 
-            res.send("ja bhai from add");
+            res.send("succesfull");
     }
 
     if (type == "-" && cur.rows[0].qty >= Number(qty)) {
@@ -43,7 +43,7 @@ app.post("/", async (req,res)=> {
         newQty,
         ItemId,
       ]);
-      res.send("ja bhai");
+      res.send("succesfull");
     }
 
 })

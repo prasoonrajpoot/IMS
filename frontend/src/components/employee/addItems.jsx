@@ -19,7 +19,7 @@ const style = {
   p: 4,
 };
 
-function AddItems() {
+function AddItems(props) {
 
      const [open, setOpen] = React.useState(false);
      const handleOpen = () => setOpen(true);
@@ -39,6 +39,7 @@ function AddItems() {
         var res = await axios.post("/addItems", data);
         if(res.data == "succesfull"){
           alert("item added succesfully");
+          props.setRefresh(!props.refreshData)
         }
         if(res.data == "err")
           alert(" some error ");
