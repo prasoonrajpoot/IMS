@@ -2,7 +2,7 @@ import React from 'react'
 import AddEmp from './addEmp';
 
 import { useSelector } from "react-redux";
-
+import AllEmployee from './allEmployee';
 function Admin() {
 
   const isAdmin = useSelector((state) => state.isAdmin);
@@ -16,6 +16,7 @@ function Admin() {
       <div>
         Admin Dashboard
         <AddEmp />
+        <AllEmployee />
       </div>
     )
   }
