@@ -12,6 +12,8 @@ const getAllItemsFile = require("./source/getAllItems.js");
 const getAllEmployeeFile = require("./source/getEmpl.js");
 const execOrdersFile = require("./source/orders.js");
 const getUnsafeList = require("./source/getUnsafeItems.js");
+const getOrderFile = require("./source/getOrders.js");
+const getProfitFile = require("./source/getProfit.js");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,6 +30,8 @@ app.use("/getItems", getAllItemsFile);
 app.use("/getEmployee",getAllEmployeeFile);
 app.use("/doOrder", execOrdersFile);
 app.use("/getUnsafeList", getUnsafeList);
+app.use("/getOrders", getOrderFile);
+app.use("/getProfit", getProfitFile);
 
 var PORT = 8181;
 app.listen(PORT, () => {

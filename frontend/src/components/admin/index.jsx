@@ -4,6 +4,7 @@ import AddEmp from './addEmp';
 import { useSelector } from "react-redux";
 import AllEmployee from './allEmployee';
 import Items from './items';
+import ProfitTable from './profitTable';
 
 function Admin() {
 
@@ -19,6 +20,7 @@ function Admin() {
         <AddEmp />
         <AllEmployee />
         <Items />
+        <ProfitTable />
       </div>
     )
   }

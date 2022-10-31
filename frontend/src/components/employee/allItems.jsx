@@ -11,9 +11,9 @@ function AllItems(props) {
         for(var i = 0; i < res.data.length; i++){
            res.data[i]["id"] = res.data[i].itemid;
         }
-        console.log("the data now is " + res.data);
+        // console.log("the data now is " + res.data);
         setAllData(res.data);
-        console.log(res.data);
+        // console.log(res.data);
     }
 
     React.useEffect(() => {
@@ -24,7 +24,9 @@ function AllItems(props) {
     const columns = [
       { field: "id", headerName: "ID", width: 70 },
       { field: "detail", headerName: "Detail", width: 130 },
-      { field: "price", headerName: "price", type: "number", width: 130 },
+      { field: "costprice", headerName: "cost price", type: "number", width: 130 },
+       { field: "sellprice", headerName: "sell price", type: "number", width: 130 },
+      
       {
         field: "qty",
         headerName: "qty",
@@ -43,7 +45,7 @@ function AllItems(props) {
     // var allRows = allData.map()
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: 400, width: "60%" }}>
       <DataGrid
         rows={allData}
         columns={columns}

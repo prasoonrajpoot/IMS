@@ -30,18 +30,24 @@ create Table Inventory(
 );
 
 
--- create Table Orders(
---     order_ID Serial,
---     admin_ID Integer,
---     order_Date date,
---     total_price Integer
--- );
+create Table Orders(
+    order_ID Serial Primary Key,
+    itemId Integer,
+    Eid Integer,
+    executedOn varchar(25),
+    typeof varchar(20),
+    qty Integer
+);
 
 create Table Items(
-    ItemId Serial,
+    ItemId Serial Primary Key,
     detail varchar(50),
     safeAmount Integer,
     qty Integer,
-    price Integer
+    costprice Integer,
+    sellprice Integer
 );
 
+
+
+select Employee.fname , sum( (items.sellprice - items.costprice)*orders.qty) as profit from orders, items, employee where employee.eid = orders.eid and orders.itemid = items.itemid group by employee.eid;

@@ -42,7 +42,7 @@ function AllEmployee() {
 
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: 400, width: "60%" }}>
       <DataGrid
         rows={allEmployee}
         columns={columns}

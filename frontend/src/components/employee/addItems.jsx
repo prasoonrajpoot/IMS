@@ -6,6 +6,8 @@ import Box from "@mui/material/Box";
 
 import axios from "axios";
 
+import { useSelector, useDispatch } from "react-redux";
+ 
 
 const style = {
   position: "absolute",
@@ -25,13 +27,18 @@ function AddItems(props) {
      const handleOpen = () => setOpen(true);
      const handleClose = () => setOpen(false);
 
+    var email = useSelector((state) => state.Email);
+
+
       const addButton = async (e) => {
         e.preventDefault();
         var data = {
+            email : email,
             detail : document.getElementById("detail").value,
             safeAmount : document.getElementById("safeAmount").value,
             qty : document.getElementById("qty").value,
-            price : document.getElementById("price").value
+            costprice : document.getElementById("costprice").value,
+            sellprice : document.getElementById("sellprice").value
         };
 
         console.log(data);
@@ -59,9 +66,7 @@ function AddItems(props) {
       >
         <Box sx={style}>
           <form action="">
-            <input id="detail" 
-            type="text" 
-            placeholder="Enter Detail of Item" />
+            <input id="detail" type="text" placeholder="Enter Detail of Item" />
             <br />
             <input
               id="safeAmount"
@@ -69,18 +74,11 @@ function AddItems(props) {
               placeholder="Enter safe amount for item"
             />
             <br />
-            <input
-              id="qty"
-              type="number"
-              placeholder="Enter qty for Item"
-            />
+            <input id="qty" type="number" placeholder="Enter qty for Item" />
             <br />
-            <input
-              id="price"
-              type="number"
-              placeholder="Enter price of Item"
-            />
+            <input id="costprice" type="number" placeholder="Enter Cost price of Item" />
             <br />
+            <input id="sellprice" type="number" placeholder="Enter Sell price of Item" />
             <br />
             <button onClick={addButton}>Add Item</button>
           </form>

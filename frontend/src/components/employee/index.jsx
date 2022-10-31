@@ -5,6 +5,8 @@ import AddItems from './addItems';
 import AllItems from './allItems';
 import OrderButton from './orderButton';
 import SafeItemsList from './safeList';
+import AllOrders from './allOrders';
+
 function Employee() {
     const isLoggedIn = useSelector((state) => state.isLoggedIn);
     var [refreshData, setRefresh] = React.useState(false);
@@ -16,9 +18,10 @@ function Employee() {
          return (
            <div>
              <AddItems refreshData={refreshData} setRefresh={setRefresh} />
-             <AllItems refreshData={refreshData} setRefresh={setRefresh} />
              <OrderButton refreshData={refreshData} setRefresh={setRefresh} />
+             <AllItems refreshData={refreshData} setRefresh={setRefresh} />
              <SafeItemsList refreshData={refreshData} setRefresh={setRefresh} />
+             <AllOrders refreshData={refreshData} setRefresh={setRefresh} />
            </div>
          );
     }

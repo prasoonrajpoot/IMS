@@ -4,6 +4,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import axios from "axios";
 
+import { useSelector, useDispatch } from "react-redux";
 
 const style = {
   position: "absolute",
@@ -18,6 +19,8 @@ const style = {
 };
 
 function OrderButton(props) {
+  var email = useSelector((state) => state.Email);
+
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -25,6 +28,7 @@ function OrderButton(props) {
    const plusButton = (e) => {
     e.preventDefault();
     var data = {
+      email : email,
       ItemId : document.getElementById("id").value,
       qty : document.getElementById("qty").value,
       type : "+"
@@ -35,6 +39,7 @@ function OrderButton(props) {
    const minusButton = (e) => {
     e.preventDefault();
     var data = {
+      email : email,
       ItemId: document.getElementById("id").value,
       qty: document.getElementById("qty").value,
       type: "-",
