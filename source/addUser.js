@@ -14,7 +14,7 @@ app.post("/", async (req, res) => {
   try {
     var { fname, email, pass, addr, isAdmin } = req.body;
     // console.log(fname + "  " + email + "  " + contact);
-    console.log("we here ");
+    // console.log("we here ");
     const newUser = await pool.query(
       "INSERT INTO employee(fname, email, pass, addr) VALUES($1, $2, $3, $4) returning *",
       [fname, email,pass , addr]
@@ -27,7 +27,7 @@ app.post("/", async (req, res) => {
         [newUser.rows[0].eid]
       )
 
-      console.log(newAdmin)
+      // console.log(newAdmin)
     }
 
 

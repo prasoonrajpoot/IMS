@@ -16,13 +16,13 @@ app.post("/", async (req, res) => {
     // admin_ID = 1;
     admin_SSN = 1;
     // console.log(fname + "  " + email + "  " + contact);
-    console.log("we here ");
+    // console.log("we here ");
     const newAdmin = await pool.query(
       "INSERT INTO Admins(admin_SSN) VALUES($1)",
       [admin_SSN ]
     );
       res.json(newAdmin);
-    console.log(newAdmin);
+    // console.log(newAdmin);
   } catch (err) {
     console.log(err);
   }

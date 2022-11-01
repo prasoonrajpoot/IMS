@@ -20,13 +20,13 @@ app.get("/", async (req, res) => {
   var addr = "fdfadfads";
     // console.log(fname + "  " + email + "  " + contact);
 
-    console.log("we here ");
+    // console.log("we here ");
     const newAdmin = await pool.query(
       "INSERT INTO Employee( fname, email, pass, addr) VALUES($1, $2, $3, $4) returning *",
       [fname, email, pass, addr]
     );
     res.json(newAdmin);
-    console.log(newAdmin);
+    // console.log(newAdmin);
   } catch (err) {
     console.log(err);
   }

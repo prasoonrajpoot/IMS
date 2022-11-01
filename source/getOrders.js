@@ -12,7 +12,7 @@ app.get("/", async (req, res) => {
         "select * from orders"
     );
 
-    console.log(a.rows);
+    // console.log(a.rows);
 
     res.send(a.rows);
 

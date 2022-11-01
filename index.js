@@ -14,6 +14,7 @@ const execOrdersFile = require("./source/orders.js");
 const getUnsafeList = require("./source/getUnsafeItems.js");
 const getOrderFile = require("./source/getOrders.js");
 const getProfitFile = require("./source/getProfit.js");
+const getChartsDataFile = require("./source/getChartData.js");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,6 +33,7 @@ app.use("/doOrder", execOrdersFile);
 app.use("/getUnsafeList", getUnsafeList);
 app.use("/getOrders", getOrderFile);
 app.use("/getProfit", getProfitFile);
+app.use("/getChartData", getChartsDataFile);
 
 var PORT = 8181;
 app.listen(PORT, () => {

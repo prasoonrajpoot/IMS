@@ -27,7 +27,7 @@ app.post("/", async (req,res)=> {
          [email]
        );
 
-       console.log(userId);
+      //  console.log(userId);
 
       var user = userId.rows[0].eid;
 

@@ -18,11 +18,11 @@ function Admin() {
     return (
       <div>
         <AddEmp />
-        <AllEmployee />
         <Items />
+        <AllEmployee />
         <ProfitTable />
       </div>
-    )
+    );
   }
   
 }

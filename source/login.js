@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 app.post("/", async (req, res) => {
     // console.log(" we are here ");
-    console.log(req.body);
+    // console.log(req.body);
     var {email, password} = req.body;
 
     const a = await pool.query(
@@ -32,7 +32,7 @@ app.post("/", async (req, res) => {
         }else{
             res.send("employee here");
         }
-        console.log(b.rows);
+        // console.log(b.rows);
     }else{
         res.send("error");
     }
