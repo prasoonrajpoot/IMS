@@ -3,7 +3,7 @@ import React from 'react'
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-
+import "./additem.css";
 import axios from "axios";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -16,10 +16,20 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "2px solid #1976d2",
   boxShadow: 24,
   p: 4,
 };
+const boxstyle = {
+  width: 200,
+  padding: '18px 20px',
+  margin: '12px 80px',
+  background: '#fff', 
+  border: "2px solid #1976d2",
+  borderTop: 0,
+  borderLeft: 0,
+  borderRight: 0,
+}
 
 function AddItems(props) {
 
@@ -66,20 +76,20 @@ function AddItems(props) {
       >
         <Box sx={style}>
           <form action="">
-            <input id="detail" type="text" placeholder="Enter Detail of Item" />
+            <input style={boxstyle} id="detail" type="text" placeholder="Enter Detail of Item" />
             <br />
-            <input
+            <input style={boxstyle}
               id="safeAmount"
               type="number"
               placeholder="Enter safe amount for item"
             />
             <br />
-            <input id="qty" type="number" placeholder="Enter qty for Item" />
+            <input  style={boxstyle} id="qty" type="number" placeholder="Enter qty for Item" />
             <br />
-            <input id="costprice" type="number" placeholder="Enter Cost price of Item" />
+            <input style={boxstyle} id="costprice" type="number" placeholder="Enter Cost price of Item" />
             <br />
-            <input id="sellprice" type="number" placeholder="Enter Sell price of Item" />
-            <br />
+            <input style={boxstyle} id="sellprice" type="number" placeholder="Enter Sell price of Item" />
+            <br /> <br /> 
             <button onClick={addButton}>Add Item</button>
           </form>
         </Box>

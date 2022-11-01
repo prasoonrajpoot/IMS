@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import axios from "axios";
-
+import "./orderButton.css";
 import { useSelector, useDispatch } from "react-redux";
 
 const style = {
@@ -17,6 +17,17 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+const boxstyle = {
+  width: 200,
+  padding: '18px 20px',
+  margin: '12px 80px',
+  background: '#fff', 
+  border: "2px solid #1976d2",
+  borderTop: 0,
+  borderLeft: 0,
+  borderRight: 0,
+}
 
 function OrderButton(props) {
   var email = useSelector((state) => state.Email);
@@ -86,13 +97,13 @@ function OrderButton(props) {
       >
         <Box sx={style}>
           <form action="">
-            <input
+            <input style={boxstyle}
               id="id"
               type="text"
               placeholder="Enter Item Id for action"
             />
             <br />
-            <input
+            <input style={boxstyle}
               id="qty"
               type="number"
               placeholder="Enter qty of action"
